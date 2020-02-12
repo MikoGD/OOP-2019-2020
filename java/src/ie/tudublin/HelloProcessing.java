@@ -10,9 +10,11 @@ public class HelloProcessing extends PApplet
 	public void settings()
 	{
 		size(this.length, this.width);
+        smooth(3);
 	}// END settings()
 
 	public void setup() {
+        noStroke();
 	}// END setup()
 
 		
@@ -21,19 +23,17 @@ public class HelloProcessing extends PApplet
 	public void draw()
 	{
         background(237, 25, 9);
-        drawTriangle((float)40, 20, (float)20, 80, (float)90, 80);
-		/*
-        stroke(0, 0, 255);
-        line(10, 10, 100, 100);	// x1, y1, x2, y2
-		point(50, 50); // x, y
-		fill(0, 255, 255);
-		noStroke();
-		ellipse(100, 200, 100, 50); // cx, cy, w, h
-		fill(255, 0, 0);
-		rect(70, 150, 90, 10); // tlx, tly, w, h
-        triangle(150, 90, 200, 100, 100, 250);
-        */
-
+        fill(238, 242, 10);
+        ellipse(250, 300, 400, 400);
+        noStroke();
+        fill(5, 247, 239);
+        triangle(60, 470, 250, 60, 440, 470);
+        fill(200);
+        ellipse(250, 250, 170, 100);
+        fill(20);
+        ellipse(250, 250, 65, 65);
+        //drawTriangle((float)40, 20, (float)20, 80, (float)90, 80);
+        //triangle(250, 100, 125, 400, 375, 400);
     }// END draw()
     
     private float getPercentageCoord(float percentage, float num)
@@ -41,6 +41,7 @@ public class HelloProcessing extends PApplet
         return (float) (num / 100) * percentage;
     }// END getPercentageCoord()
 
+    /*
     private void drawTriangle(float x1, float y1, float x2, float y2, float x3, float y3)
     {
         float tx1, ty1, tx2, ty2, tx3, ty3;
@@ -54,4 +55,5 @@ public class HelloProcessing extends PApplet
 
         triangle(tx1, ty1, tx2, ty2, tx3, ty3);
     }// END drawTriangle()
+    */
 }// END CLASS HelloProcessing
