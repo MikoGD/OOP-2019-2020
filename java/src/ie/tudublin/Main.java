@@ -20,6 +20,12 @@ public class Main
 		String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new BugZap());
     }
+
+    public void bugZap1()
+    {
+        String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch(a, new BugZap1());
+    }
     
     public void airSeaBattle()
 	{
@@ -69,6 +75,6 @@ public class Main
     public static void main(String[] arg)
     {
         Main main = new Main();
-		main.loops();        
+        main.loops();
     }
 }
