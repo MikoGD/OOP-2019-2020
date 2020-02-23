@@ -14,6 +14,7 @@ public class ArraysExample extends PApplet
 
 	public void settings()
 	{
+        smooth(4);
 		size(500, 500);
 	}
 
@@ -74,7 +75,85 @@ public class ArraysExample extends PApplet
 			fill(i * cGap, 255, 255);
 			rect(x, height, w, -rainFall[i]);
 		}
-	}
+    }
+    
+    public void drawLineChart()
+    {
+        float blockSize;
+
+        blockSize = height / 18;
+        float[] graphOrigin = {blockSize, height - blockSize};
+
+        stroke(255);
+
+        // x-axis
+        line(
+            graphOrigin[0],
+            graphOrigin[1],
+            width - blockSize,
+            graphOrigin[1]);
+
+        // y-axis
+        line(
+            graphOrigin[0],
+            graphOrigin[1],
+            graphOrigin[0],
+            blockSize);
+
+        for (int lineDivision = 0; lineDivision < 16; lineDivision++)
+        {
+            // Creates divisions along x-axis
+            line(
+                graphOrigin[0] + (blockSize * lineDivision),
+                graphOrigin[1],
+                graphOrigin[0] + (blockSize * lineDivision),
+                graphOrigin[1] + 5);
+
+            // Draw elements of divisions i.e. month name
+            textAlign(CENTER, TOP);
+            text(
+                this.months[lineDivision % this.months.length],
+                (graphOrigin[0] * 2) + (blockSize * lineDivision),
+                graphOrigin[1] + 5);
+
+            // Creates divisions along x-axis
+            line(
+                graphOrigin[0],
+                graphOrigin[1] - (blockSize * lineDivision),
+                graphOrigin[0] - 5,
+                graphOrigin[1] - (blockSize * lineDivision));
+            
+            // Draw elements of divisions i.e. number
+            textAlign(RIGHT, CENTER);
+            text(
+                lineDivision * 10,
+                graphOrigin[0] - 5,
+                graphOrigin[1] - (blockSize * lineDivision));
+        }// END FOR
+
+        stroke(255, 255, 255);
+
+        for (int lineDivision = 0; lineDivision < this.months.length - 1; lineDivision++)
+        {
+            float yt1 = map(this.rainFall[lineDivision], 0, 150, 0, graphOrigin[1] - (blockSize * 2.5f));
+            float yt2 = map(this.rainFall[lineDivision + 1], 0, 150, 0, graphOrigin[1] - (blockSize * 2.5f));
+
+            float x1 = graphOrigin[0] + (blockSize * lineDivision);
+            float y1 = graphOrigin[1] - yt1;
+            float x2 = graphOrigin[0] + (blockSize * lineDivision) + blockSize;
+            float y2 = graphOrigin[1] - yt2;
+
+            println("(" + x1 + ", " + y1 + ", " + x2 + ", " + y2 + ")");
+            line(x1, y1, x2, y2);
+            /*
+            line(
+                graphOrigin[0] + (blockSize * lineDivision),
+                graphOrigin[1] + this.rainFall[lineDivision],
+                graphOrigin[0] + (blockSize * lineDivision * 2),
+                graphOrigin[1] + this.rainFall[lineDivision + 1]);
+            */
+        }// END FOR
+    }// END drawLineChart()
 
 	public void keyPressed()
 	{
@@ -89,6 +168,6 @@ public class ArraysExample extends PApplet
 		background(0);		
 		colorMode(HSB);	
 
-		drawBarChart();
+        drawLineChart();
 	}
 }

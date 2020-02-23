@@ -70,12 +70,6 @@ public class Main
         // c c will get printed out because 
         // a & b are object references
     }
-
-    public void arrays()
-    {
-        String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch(a, new Arrays());
-    }// END arrays()
     
     public static void main(String[] arg)
     {
