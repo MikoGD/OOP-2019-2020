@@ -143,15 +143,7 @@ public class ArraysExample extends PApplet
             float x2 = graphOrigin[0] + (blockSize * lineDivision) + blockSize;
             float y2 = graphOrigin[1] - yt2;
 
-            println("(" + x1 + ", " + y1 + ", " + x2 + ", " + y2 + ")");
             line(x1, y1, x2, y2);
-            /*
-            line(
-                graphOrigin[0] + (blockSize * lineDivision),
-                graphOrigin[1] + this.rainFall[lineDivision],
-                graphOrigin[0] + (blockSize * lineDivision * 2),
-                graphOrigin[1] + this.rainFall[lineDivision + 1]);
-            */
         }// END FOR
     }// END drawLineChart()
 
