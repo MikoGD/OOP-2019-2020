@@ -33,21 +33,20 @@ public class Loops extends PApplet
 	public void draw()
 	{
         int i;
+        /*
         noStroke();
         fill(120, 120, 255);
         ellipse(this.centerX, this.centerY, 25, 25);
+        */
+        stroke(1);
+        translate(width / 2, height / 2);
 
-        for(i = 0; i < 360; i += 10)
+        for(i = 0; i < 360; i++)
         {
-            stroke(0);
-            translate(width / 2, height / 2);
             rotate(i);
-
-            pushMatrix();
-            rotate(i);
-            line(-47, 0, 47, 0);
-            popMatrix();
+            line(-width, 0, width, 0);
         }// END FOR
+
 	}// END draw()
 
     public void spiral()
